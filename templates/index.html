@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+Books
+{% endblock %}
+
+{% block body %}
+<body id="mybody" class="text-center">
+  <div id="bg-image" class="container">
+    <form class="form-signin" autocomplete="off">
+      <img class="img-left" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72" style="margin-right:1cm">
+
+      <h2 style="text-align: left;"><strong>Welcome to Books</strong></h2>
+      <h4 style="text-align: left;padding-bottom:10px">Please sign in</h4>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="{{ url_for('login') }}">Sign
+        in</button>
+    </form>
+    <form>
+      <button class="btn btn-sm btn-secondary" type="submit" value="Register"
+        formaction="{{ url_for('register') }}">Register</button> (new
+      user)
+    </form>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020 by Pablo Gietz</p>
+  </div>
+
+</body>
+{% endblock %}

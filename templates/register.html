@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}
+    Register
+{% endblock %}
+{% block body %}
+<body id="mybody" class="text-center">
+  <div class="container">
+    <form class="form-signin" autocomplete="off" method="post">
+      <img class="img-left" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72" style="margin-right:1cm">
+      <!-- <h2>Books</h2> -->
+      <h2 style="text-align: left;">Books</h2>
+      <h4 style="text-align: left;padding-bottom:10px">Register</h4>
+      <input type="text" value="{{firstname}}" name="firstname" id="firstname" class="form-control"
+        placeholder="First Name" required autofocus>
+      <input type="text" value="{{lastname}}" name="lastname" id="lastname" class="form-control" placeholder="Last Name"
+        required>
+      <br>
+      <label for="username" class="sr-only">User name</label>
+      <input type="text" value="{{username}}" name="username" id="username" class="form-control" placeholder="User name"
+        required>
+      {% if alert != "" %}
+      <div class="alert alert-danger" id="alert_placeholder1" role="alert">Error: {{alert}}</div>
+      {% endif %}
+
+      <label for="inputPassword1" class="sr-only">Password</label>
+      <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Password" required>
+      <label for="inputPassword2" class="sr-only">Repeat-Password</label>
+      <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Repeat-Password"
+        required>
+      {% if alert1 != "" %}
+      <div class="alert alert-danger" id="alert_placeholder1" role="alert">Error: {{alert1}}</div>
+      {% endif %}
+      <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="/register">Register</button>
+    </form>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020 by Pablo Gietz</p>
+  </div>
+</body>
+{% endblock %}

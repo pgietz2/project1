@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    Success
+{% endblock %}
+{% block body %}
+<body id="mybody" class="text-center">
+  <div class="container">
+  <h1>You have succesfully registered. </h1>
+  
+   <a href="{{ url_for('login') }}">Sign in</a>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2020 by Pablo Gietz</p>   
+</div>
+</body>     
+{% endblock %}

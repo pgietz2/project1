@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}
+    Search
+{% endblock %}
+{% block body %}
+<body id="mybody2">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid ">
+  
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Books</a>
+      </div>
+  
+      <div class="nav navbar-right">
+        <a class="navbar-brand" href="#">{{username}}</a>
+        <div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+  <h1 style="text-align:left" >Welcome {{firstname}}, enter your search. </h1>
+  <br>
+   <!-- <a href="{{ url_for('login') }}">Sign in</a> -->
+  <div>
+    <form method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="search" class="sr-only">Search</label>
+          <input type="text" value="{{searchtext}}" name="searchtext" class="form-control" id="search" placeholder="Search book for ISBN, Author or Title"
+            autofocus>
+        </div>
+        <div class="form-group col-md-2">
+          <button type="submit" class="btn btn-primary mb-2" formaction="/search">Search</button>
+        </div>
+      </div>
+    </form>
+    {% if alert != "" %}    
+    <div class="alert alert-primary" id="alert_placeholder1" role="alert">{{alert}}</div>
+    {% endif %}
+     <table class="table table-sm table-bordered table-striped"> 
+      <thead>
+        <tr>
+          <th>ISBN</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        {% for book in books %}
+        <tr>
+          <td>{{ book.isbn }}</td>
+          <td><a href="{{ url_for('book', book_id=book.id) }}">{{ book.title }}</a></td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.year }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2020 by Pablo Gietz</p>   
+</div>
+</body>
+{% endblock %}
+</html>

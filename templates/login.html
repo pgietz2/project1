@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}
+    Sign in
+{% endblock %}
+{% block body %}
+<body id="mybody" class="text-center">
+
+    <div id="bg-image" class="container">
+    <form class="form-signin" autocomplete="off" method="post">
+      <img class="img-left" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72" style="margin-right:1cm">
+      <!-- <h2>Books</h2> -->
+      <h2 style="text-align: left;">Books</h2>
+      <h4 style="text-align: left;padding-bottom:10px">Please sign in</h4>
+      <label for="inputtext" class="sr-only">User name</label>
+      <input type="text" maxlength="10" value="{{username}}" name="username" id="username" class="form-control"
+        placeholder="User name" required autofocus autocomplete="off">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" maxlength="10" name="password" id="inputPassword" class="form-control"
+        placeholder="Password" required>
+      {% if alert != "" %}
+      <div class="alert alert-danger" id="alert_placeholder1" role="alert">{{alert}}</div>
+      {% endif %}
+      <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="{{ url_for('login') }}">Sign
+        in</button>
+    </form>
+
+    <div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020 by Pablo Gietz</p>
+    </div>
+  </div>
+</body>
+{% endblock %}
+
